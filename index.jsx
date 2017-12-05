@@ -115,7 +115,6 @@ export class RadioButton extends Component {
         flex: 1,
         marginBottom: horizontal ? 0 : label ? (padding || 16) / 2 : (padding || 16),
         marginRight: horizontal && !last ? (padding || 16) / 2 : 0,
-        width: 200,
         ...styles,
       },
       label: {
