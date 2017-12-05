@@ -19,13 +19,13 @@ export class RadioGroup extends Component {
     super();
 
     const index = children.findIndex(c => c.props.value === value);
-    let checkedIndex 
+    let checkedIndex
     if (value === undefined)    // This is the case where it is not specified
-      checkedIndex = -1 
+      checkedIndex = -1
     else {
       if (index > -1 && !children[index].props.disabled)
-        checkedIndex = index 
-      else 
+        checkedIndex = index
+      else
         checkedIndex = getInitialCheckedIndex(children)
     }
     this.state = { checkedIndex: checkedIndex };
@@ -42,7 +42,7 @@ export class RadioGroup extends Component {
     return child && child.props.value || '';
   }
 
-// This is the case to handle late arriving props, 
+// This is the case to handle late arriving props,
 // and set the state according to the value
 // as long as it's not disabled
   componentWillReceiveProps(nextProps) {
@@ -101,7 +101,7 @@ export class RadioButton extends Component {
   }
 
   getStyles() {
-    const { horizontal, last, padding, rootColor, pointColor, disabled, disabledColor, label } = this.props;
+    const { horizontal, last, padding, rootColor, pointColor, disabled, disabledColor, label, styles } = this.props;
 
     return {
       root: {
@@ -115,6 +115,7 @@ export class RadioButton extends Component {
         flex: 1,
         marginBottom: horizontal ? 0 : label ? (padding || 16) / 2 : (padding || 16),
         marginRight: horizontal && !last ? (padding || 16) / 2 : 0,
+        ...styles,
       },
       label: {
         color: pointColor || '#8CB9FD',
@@ -229,7 +230,7 @@ export class ReversedRadioButton extends Component {
     const style = this.getStyles();
     const buttonStyle = Object.assign({}, style.root, checked ? style.checked : {});
     const labelStyle = Object.assign({}, style.root, style.label)
-    
+
     return (
       <div style={buttonStyle} onClick={this.onClick}>
         <div style={{ display: 'inline-flex', width: '100%' }}>
