@@ -75,7 +75,7 @@ export class RadioGroup extends Component {
   render() {
     const { checkedIndex } = this.state;
     const { horizontal, children, ...props } = this.props;
-    const style = horizontal ? { display: 'inline-flex', width: '100%' } : {};
+    const style = horizontal ? { display: 'inline-flex' } : {};
     return (
       <div style={style} {...props}>
         {
@@ -102,7 +102,7 @@ export class RadioButton extends Component {
 
   getStyles() {
     const { horizontal, last, padding, rootColor, pointColor, disabled, disabledColor, label, styles } = this.props;
-    console.log(this.props)
+
     return {
       root: {
         cursor: disabled ? 'not-allowed' : 'pointer',
