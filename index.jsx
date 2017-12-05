@@ -102,7 +102,7 @@ export class RadioButton extends Component {
 
   getStyles() {
     const { horizontal, last, padding, rootColor, pointColor, disabled, disabledColor, label, styles } = this.props;
-
+    console.log(this.props)
     return {
       root: {
         cursor: disabled ? 'not-allowed' : 'pointer',
